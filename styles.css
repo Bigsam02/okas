@@ -212,3 +212,57 @@ footer button:hover, footer a:hover { color: var(--gold-light); }
     .testimonial-grid { grid-template-columns: 1fr; }
     .floating-whatsapp { width: 48px; height: 48px; font-size: 1.3rem; bottom: 18px; right: 18px; }
 }
+
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.92);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.lightbox.show {
+    display: flex;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    animation: zoomIn 0.3s ease;
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 3100;
+    transition: color 0.2s;
+}
+.lightbox-close:hover {
+    color: var(--gold);
+}
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* Adjust close button on small screens */
+@media (max-width: 600px) {
+    .lightbox-close {
+        top: 15px;
+        right: 25px;
+        font-size: 30px;
+    }
+}

@@ -22,6 +22,7 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- NAVIGATION -->
     <nav id="navbar" aria-label="Main navigation">
         <div class="nav-inner">
             <a href="#" class="nav-logo" onclick="navigateTo('home')" aria-label="OKA'S Home">
@@ -66,6 +67,7 @@
                 <div class="hero-scroll-indicator" onclick="document.getElementById('quick-services').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down"><i class="fas fa-chevron-down"></i></div>
             </div>
 
+            <!-- Quick Services -->
             <div class="container section-padding" id="quick-services">
                 <div class="section-header">
                     <span class="badge">What We Do</span>
@@ -80,6 +82,7 @@
                 </div>
             </div>
 
+            <!-- Before/After Slider (Home) -->
             <div class="container section-padding" style="padding-top:0;">
                 <div class="section-header"><span class="badge">Our Work</span><h2>Before & <span>After</span></h2><div class="underline"></div></div>
                 <div class="ba-slider-wrapper" id="homeBASlider" aria-label="Before and after image comparison">
@@ -92,6 +95,7 @@
                 </div>
             </div>
 
+            <!-- Trust indicators -->
             <div class="container text-center section-padding" style="padding-top:0;">
                 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;align-items:center;">
                     <div><strong style="font-size:2.5rem;color:var(--green-mid);">12+</strong><br><small>Years Experience</small></div>
@@ -107,7 +111,7 @@
             <div class="container section-padding">
                 <div class="section-header"><span class="badge">About Us</span><h2 id="about-heading">The <span>OKA'S</span> Story</h2><div class="underline"></div></div>
                 <div class="about-grid">
-                    <div><img src="images/background_1.jpg" alt="OKA'S team working" style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);" loading="lazy"></div>
+                    <div><img src="images/background_1.jpg" alt="OKA'S team working on a landscaping project" style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);" loading="lazy"></div>
                     <div>
                         <h3 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:12px;">Crafting Beauty Since 2012</h3>
                         <p style="color:var(--gray-dark);margin-bottom:12px;">OKA’S is a professionally registered company specializing in horticulture, landscaping, floor stamping, and modern 3D floor design. We transform residential, commercial, and outdoor spaces into visually stunning environments with quality and creativity.</p>
@@ -138,7 +142,7 @@
             </div>
         </section>
 
-        <!-- ===== PROJECTS ===== -->
+        <!-- ===== PROJECTS (with lightbox support) ===== -->
         <section class="section" id="section-projects" aria-labelledby="projects-heading">
             <div class="container section-padding">
                 <div class="section-header"><span class="badge">Gallery</span><h2 id="projects-heading">Our <span>Projects</span></h2><div class="underline"></div></div>
@@ -209,6 +213,7 @@
                         <div class="map-placeholder"><iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen loading="lazy" title="OKA'S location"></iframe></div>
                     </div>
                 </div>
+                <!-- FAQ -->
                 <div class="container section-padding" style="padding-top:0;">
                     <div class="section-header"><h2>FAQ</h2><div class="underline"></div></div>
                     <div class="faq-list">
@@ -234,7 +239,14 @@
         </div>
     </footer>
 
+    <!-- Floating WhatsApp -->
     <a href="https://wa.me/2349051530632" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox" aria-label="Image lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <span class="lightbox-close" aria-label="Close lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Zoomed project image">
+    </div>
 
     <div id="toastContainer"></div>
 

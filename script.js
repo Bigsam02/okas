@@ -1,14 +1,11 @@
 (function() {
-    // ---------- DATA (static, no admin editing) ----------
+    // ---------- DATA (static) ----------
     const projects = [
         { id: 1, title: 'Luxury Garden Oasis', category: 'horticulture', location: 'Ikoyi, Lagos', image: 'images/project-garden.jpg', desc: 'Complete garden redesign with water feature.' },
         { id: 2, title: 'Modern Driveway Stamping', category: 'floor-stamping', location: 'Lekki, Lagos', image: 'images/project-driveway.jpg', desc: 'Decorative concrete stamping 200m².' },
         { id: 3, title: '3D Ocean Floor', category: '3d-floor', location: 'Abuja', image: 'images/project-3d-floor.jpg', desc: 'Stunning 3D epoxy floor.' },
         { id: 4, title: 'Corporate Landscaping', category: 'landscaping', location: 'Victoria Island', image: 'images/project-landscape.jpg', desc: 'Full campus landscaping.' },
-        { id: 5, title: 'Poolside Stamping', category: 'floor-stamping', location: 'Banana Island', image: 'images/project-poolside.jpg', desc: 'Slip-resistant pool deck.' },
-        { id: 6, title: 'Rooftop Garden', category: 'horticulture', location: 'Yaba, Lagos', image: 'images/project-rooftop.jpg', desc: 'Urban rooftop garden transformation.' },
     ];
-
 
     const testimonials = [
         { id: 1, name: 'Chioma E.', role: 'Homeowner, Lagos', stars: 5, quote: 'OKA\'S transformed our backyard into a paradise!', avatar: 'images/avatar-chioma.jpg' },
@@ -114,13 +111,13 @@
         item.addEventListener('click', () => item.classList.toggle('open'));
     });
 
-    // Gallery rendering
+    // ---------- GALLERY RENDERING (with lightbox) ----------
     function renderGallery(filter = 'all') {
         const grid = document.getElementById('galleryGrid');
         if (!grid) return;
         const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
         grid.innerHTML = filtered.map(p => `
-            <div class="gallery-item">
+            <div class="gallery-item" data-full="${p.image}" data-title="${p.title}">
                 <img src="${p.image}" alt="${p.title}" loading="lazy" 
                      onerror="console.warn('Image failed:', this.src); this.src='images/fallback.jpg';">
                 <div class="gallery-info"><h4>${p.title}</h4><small>${p.location}</small></div>
@@ -132,6 +129,48 @@
             document.querySelectorAll('#galleryFilters button').forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             renderGallery(e.target.dataset.filter);
+        }
+    });
+
+    // Lightbox functionality (event delegation on gallery grid)
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.add('show');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // prevent background scrolling
+        lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('show');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        lightboxImg.src = '';
+    }
+
+    // Open on gallery item click
+    document.getElementById('galleryGrid').addEventListener('click', (e) => {
+        const galleryItem = e.target.closest('.gallery-item');
+        if (!galleryItem) return;
+        const src = galleryItem.dataset.full;
+        const title = galleryItem.dataset.title;
+        if (src) openLightbox(src, title);
+    });
+
+    // Close events
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        // Close if clicking on the dark background (not the image itself)
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+            closeLightbox();
         }
     });
 
@@ -151,7 +190,7 @@
             </div>`).join('');
     }
 
-    // Contact form submission
+    // Contact form
     window.handleContactSubmit = function(e) {
         e.preventDefault();
         const btnText = document.getElementById('submitBtnText');
@@ -172,7 +211,7 @@
         return false;
     };
 
-    // Toast notification
+    // Toast
     function showToast(msg) {
         const c = document.getElementById('toastContainer');
         const t = document.createElement('div');
