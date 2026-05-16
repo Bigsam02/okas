@@ -13,269 +13,28 @@
     <meta property="og:url" content="https://www.okas.com.ng">
     <title>OKA'S | Premium Horticulture, Landscaping & 3D Floor Design</title>
 
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Preconnect for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* ===== DESIGN SYSTEM ===== */
-        :root {
-            --green-dark: #0a2e0f;
-            --green-mid: #1a5c2e;
-            --green-bright: #2d8a4e;
-            --green-light: #4caf6e;
-            --gold: #b8942e;
-            --gold-light: #d4b863;
-            --gold-dark: #a8892e;
-            --black: #0d0d0d;
-            --black-soft: #1a1a1a;
-            --white: #ffffff;
-            --white-off: #f8f7f4;
-            --gray-light: #e8e6e1;
-            --gray-mid: #b0ada6;
-            --gray-dark: #4a4742;
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-body: 'Inter', system-ui, sans-serif;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
-            --shadow-lg: 0 12px 40px rgba(0,0,0,0.18);
-            --shadow-gold: 0 4px 24px rgba(184,148,46,0.25);
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 22px;
-            --radius-xl: 28px;
-            --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
-            --transition-slow: 0.5s cubic-bezier(0.4,0,0.2,1);
-            --max-width: 1280px;
-            --nav-height: 75px;
-        }
-
-        /* Skip navigation */
-        .skip-link { position: absolute; top: -100px; left: 20px; background: var(--gold); color: var(--black); padding: 10px 20px; border-radius: 25px; z-index: 10000; transition: top 0.3s; font-weight: 600; text-decoration: none; }
-        .skip-link:focus { top: 20px; }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
-        body { font-family: var(--font-body); background: var(--white); color: var(--black-soft); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-        img { height: auto; max-width: 100%; display: block; }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--white-off); }
-        ::-webkit-scrollbar-thumb { background: var(--green-mid); border-radius: 10px; }
-
-        /* ===== NAVIGATION ===== */
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,10,10,0.92); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,0.06); transition: var(--transition); height: var(--nav-height); }
-        nav.scrolled { background: rgba(10,10,10,0.97); box-shadow: var(--shadow-lg); }
-        .nav-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 100%; }
-        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; letter-spacing: 1px; }
-        .nav-logo .logo-icon { width: 42px; height: 42px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--black); font-weight: 800; font-size: 1.1rem; }
-        .nav-logo span { color: var(--gold); }
-        .nav-links { display: flex; list-style: none; gap: 6px; align-items: center; }
-        .nav-links a, .nav-links button { background: none; border: none; font-family: inherit; color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 10px 16px; border-radius: 25px; transition: var(--transition); letter-spacing: 0.3px; cursor: pointer; white-space: nowrap; }
-        .nav-links a:hover, .nav-links a.active, .nav-links button:hover, .nav-links button.active { color: var(--white); background: rgba(255,255,255,0.08); }
-        .nav-cta { background: var(--gold); color: var(--black) !important; font-weight: 600 !important; padding: 10px 20px; box-shadow: var(--shadow-gold); }
-        .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
-        .admin-link { font-size: 0.8rem; opacity: 0.6; padding: 8px 12px !important; }
-        .admin-link:hover { opacity: 1; background: rgba(255,255,255,0.05); }
-
-        /* Mobile menu button */
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 8px; background: none; border: none; }
-        .hamburger span { width: 26px; height: 2.5px; background: var(--white); border-radius: 3px; transition: var(--transition); }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-
-        /* ===== SECTIONS ===== */
-        main { position: relative; }
-        .section { display: none; animation: fadeSlideIn 0.5s ease forwards; }
-        .section.active { display: block; }
-        @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* ===== HERO ===== */
-        .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--black); }
-        .hero-slideshow { position: absolute; inset: 0; z-index: 0; }
-        .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; background-size: cover; background-position: center; filter: brightness(0.4); }
-        .hero-slide.active { opacity: 1; }
-        .hero-slide:nth-child(1) { background-image: url('images/background_1.jpg'); }
-        .hero-slide:nth-child(2) { background-image: url('images/background_2.jpg'); }
-        .hero-slide:nth-child(3) { background-image: url('images/background_3.jpg'); }
-        .hero-slide:nth-child(4) { background-image: url('images/background_4.jpg'); }
-        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,30,15,0.7) 0%, rgba(0,0,0,0.55) 50%, rgba(10,30,15,0.8) 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 40px 24px; }
-        .hero-badge { display: inline-block; background: rgba(184,148,46,0.2); border: 1px solid var(--gold); color: var(--gold-light); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
-        .hero-content h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5.5vw, 4.2rem); color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 18px; letter-spacing: -1px; }
-        .hero-content h1 span { color: var(--gold-light); }
-        .hero-content p { font-size: 1.15rem; color: rgba(255,255,255,0.8); margin-bottom: 36px; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-        .btn { display: inline-flex; align-items: center; gap: 9px; padding: 15px 30px; border-radius: 35px; font-weight: 600; font-size: 0.95rem; text-decoration: none; cursor: pointer; border: none; transition: var(--transition); letter-spacing: 0.4px; font-family: var(--font-body); }
-        .btn-primary { background: var(--gold); color: var(--black); box-shadow: var(--shadow-gold); }
-        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-        .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
-        .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); transform: translateY(-2px); }
-        .btn-whatsapp { background: #25D366; color: #fff; box-shadow: 0 4px 18px rgba(37,211,102,0.3); }
-        .btn-whatsapp:hover { background: #1fb855; transform: translateY(-2px); }
-        .btn-sm { padding: 10px 20px; font-size: 0.85rem; border-radius: 28px; }
-        .btn-dark { background: var(--black-soft); color: var(--white); border: 1px solid rgba(255,255,255,0.15); }
-        .btn-dark:hover { background: #222; border-color: rgba(255,255,255,0.3); }
-        .hero-scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; animation: bounceDown 2s infinite; color: rgba(255,255,255,0.7); font-size: 1.5rem; cursor: pointer; }
-        @keyframes bounceDown { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(14px); } }
-
-        /* ===== COMMON ===== */
-        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; }
-        .section-padding { padding: 90px 0; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header .badge { display: inline-block; background: rgba(26,92,46,0.08); color: var(--green-mid); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 14px; }
-        .section-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--black); margin-bottom: 10px; letter-spacing: -0.5px; }
-        .section-header h2 span { color: var(--green-mid); }
-        .underline { display: block; width: 50px; height: 3px; background: var(--gold); margin: 12px auto 0; border-radius: 3px; }
-        .section-header p { color: var(--gray-dark); max-width: 600px; margin: 0 auto; font-size: 0.95rem; }
-
-        /* Services cards */
-        .services-preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 30px; }
-        .service-card { background: var(--white); border-radius: var(--radius-lg); padding: 32px 24px; text-align: center; transition: var(--transition-slow); border: 1px solid var(--gray-light); position: relative; overflow: hidden; cursor: pointer; }
-        .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: transparent; }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gold); transform: scaleX(0); transition: var(--transition-slow); border-radius: 0 0 4px 4px; }
-        .service-card:hover::before { transform: scaleX(1); }
-        .icon-circle { width: 64px; height: 64px; border-radius: 50%; background: rgba(26,92,46,0.06); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-size: 1.6rem; color: var(--green-mid); transition: var(--transition); }
-        .service-card:hover .icon-circle { background: var(--green-mid); color: var(--white); box-shadow: 0 8px 24px rgba(26,92,46,0.3); }
-        .service-card h3 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 8px; color: var(--black); }
-        .service-card p { font-size: 0.85rem; color: var(--gray-dark); line-height: 1.5; }
-
-        /* Before/After slider */
-        .ba-slider-wrapper { position: relative; width: 100%; max-width: 700px; margin: 0 auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); cursor: ew-resize; user-select: none; }
-        .ba-slider { position: relative; width: 100%; aspect-ratio: 16/10; overflow: hidden; }
-        .ba-slider img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-        .ba-slider .img-after { clip-path: inset(0 50% 0 0); z-index: 2; }
-        .ba-slider .img-before { z-index: 1; }
-        .ba-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: var(--white); z-index: 3; cursor: ew-resize; box-shadow: 0 0 12px rgba(0,0,0,0.4); transform: translateX(-50%); }
-        .ba-handle-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 44px; height: 44px; border-radius: 50%; background: var(--white); box-shadow: var(--shadow-md); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--black); z-index: 4; }
-        .ba-labels { display: flex; justify-content: space-between; padding: 10px 16px; background: var(--black-soft); color: var(--white); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; }
-
-        /* Testimonials */
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
-        .testimonial-card { background: var(--white); border-radius: var(--radius-lg); padding: 28px 24px; border: 1px solid var(--gray-light); transition: var(--transition); }
-        .testimonial-card:hover { box-shadow: var(--shadow-md); border-color: transparent; }
-        .stars { color: var(--gold); margin-bottom: 10px; }
-        .quote { font-style: italic; color: var(--gray-dark); font-size: 0.9rem; margin-bottom: 16px; }
-        .author { display: flex; align-items: center; gap: 12px; }
-        .author-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; background: var(--gray-light); }
-        .author-name { font-weight: 600; font-size: 0.9rem; color: var(--black); }
-        .author-role { font-size: 0.75rem; color: var(--gray-mid); }
-
-        /* Contact */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-        .contact-form-wrapper { background: var(--white); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-md); border: 1px solid var(--gray-light); }
-        .contact-form-wrapper h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 20px; }
-        .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; font-weight: 500; margin-bottom: 6px; font-size: 0.85rem; color: var(--black); }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 13px 16px; border: 2px solid var(--gray-light); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 0.9rem; transition: var(--transition); background: var(--white-off); resize: vertical; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--green-mid); box-shadow: 0 0 0 4px rgba(26,92,46,0.08); background: var(--white); }
-        .contact-info-side { display: flex; flex-direction: column; gap: 20px; }
-        .contact-info-card { display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--white-off); border-radius: var(--radius-md); border-left: 3px solid var(--gold); }
-        .contact-info-card i { font-size: 1.2rem; color: var(--green-mid); margin-top: 2px; }
-        .contact-info-card strong { display: block; font-size: 0.85rem; color: var(--black); }
-        .contact-info-card span { font-size: 0.85rem; color: var(--gray-dark); }
-        .map-placeholder { width: 100%; height: 250px; border-radius: var(--radius-lg); background: var(--gray-light); overflow: hidden; }
-        .map-placeholder iframe { width: 100%; height: 100%; border: none; }
-
-        /* FAQ */
-        .faq-list { max-width: 750px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid var(--gray-light); padding: 18px 0; cursor: pointer; }
-        .faq-q { font-weight: 600; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; color: var(--black); }
-        .faq-q i { transition: var(--transition); color: var(--green-mid); }
-        .faq-item.open .faq-q i { transform: rotate(180deg); }
-        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--gray-dark); font-size: 0.9rem; }
-        .faq-item.open .faq-a { max-height: 200px; padding-top: 10px; }
-
-        /* Gallery */
-        .gallery-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 32px; }
-        .gallery-filters button { padding: 10px 22px; border-radius: 25px; border: 2px solid var(--gray-light); background: var(--white); cursor: pointer; font-weight: 500; font-size: 0.85rem; transition: var(--transition); font-family: var(--font-body); }
-        .gallery-filters button.active, .gallery-filters button:hover { background: var(--green-mid); color: var(--white); border-color: var(--green-mid); }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
-        .gallery-item { border-radius: var(--radius-md); overflow: hidden; position: relative; cursor: pointer; aspect-ratio: 4/3; background: var(--gray-light); transition: var(--transition); box-shadow: var(--shadow-sm); }
-        .gallery-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow); }
-        .gallery-item:hover img { transform: scale(1.06); }
-        .gallery-info { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: var(--white); padding: 20px 16px 14px; transform: translateY(20px); opacity: 0; transition: var(--transition); }
-        .gallery-item:hover .gallery-info { transform: translateY(0); opacity: 1; }
-        .gallery-info h4 { font-size: 0.95rem; font-weight: 600; }
-        .gallery-info small { font-size: 0.75rem; opacity: 0.8; }
-
-        /* CTA banner */
-        .cta-banner { background: var(--black-soft); color: var(--white); text-align: center; padding: 60px 28px; border-radius: var(--radius-xl); margin: 40px 0; position: relative; overflow: hidden; }
-        .cta-banner::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(184,148,46,0.08) 0%, transparent 60%); animation: rotateSlow 20s linear infinite; }
-        @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .cta-banner > * { position: relative; z-index: 1; }
-        .cta-banner h2 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 12px; }
-
-        /* Footer */
-        footer { background: var(--black); color: rgba(255,255,255,0.7); padding: 50px 0 20px; font-size: 0.85rem; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
-        footer h4 { color: var(--white); font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 12px; }
-        footer a { color: rgba(255,255,255,0.6); text-decoration: none; transition: var(--transition); display: block; margin-bottom: 6px; }
-        footer a:hover { color: var(--gold-light); }
-        .social-links { display: flex; gap: 12px; margin-top: 10px; }
-        .social-links a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: var(--transition); }
-        .social-links a:hover { background: var(--gold); color: var(--black); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; text-align: center; font-size: 0.78rem; opacity: 0.6; }
-
-        /* Floating WhatsApp */
-        .floating-whatsapp { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 6px 24px rgba(37,211,102,0.4); cursor: pointer; transition: var(--transition); text-decoration: none; animation: pulse 2.5s infinite; }
-        @keyframes pulse { 0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); } 50% { box-shadow: 0 6px 36px rgba(37,211,102,0.7); transform: scale(1.05); } }
-        .floating-whatsapp:hover { transform: scale(1.1); }
-
-        /* Admin */
-        .admin-login-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 2000; display: none; align-items: center; justify-content: center; }
-        .admin-login-overlay.show { display: flex; }
-        .admin-login-box { background: var(--white); padding: 36px; border-radius: var(--radius-lg); width: 90%; max-width: 400px; text-align: center; }
-        .admin-panel { display: none; padding: 40px 28px; max-width: var(--max-width); margin: 0 auto; }
-        .admin-panel.show { display: block; }
-        .admin-panel h2 { font-family: var(--font-display); margin-bottom: 24px; }
-        .admin-section { background: var(--white-off); border-radius: var(--radius-md); padding: 24px; margin-bottom: 20px; border: 1px solid var(--gray-light); }
-        .admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-        .admin-card { background: var(--white); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--gray-light); font-size: 0.8rem; }
-        .admin-card button { margin-top: 8px; font-size: 0.7rem; padding: 5px 12px; border-radius: 15px; cursor: pointer; border: 1px solid #ddd; background: #fff; margin-right: 4px; transition: var(--transition); }
-        .admin-card button.danger { color: #c0392b; border-color: #e74c3c; }
-        .admin-card button.danger:hover { background: #e74c3c; color: #fff; }
-        .admin-card button.edit-btn:hover { background: var(--green-mid); color: #fff; border-color: var(--green-mid); }
-        .admin-form input, .admin-form textarea { width: 100%; padding: 10px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 6px; font-family: var(--font-body); font-size: 0.85rem; }
-        .admin-form button { padding: 10px 20px; background: var(--green-mid); color: #fff; border: none; border-radius: 20px; cursor: pointer; font-weight: 600; transition: var(--transition); }
-        .admin-form button:hover { background: var(--green-bright); }
-        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--black-soft); color: #fff; padding: 12px 24px; border-radius: 25px; z-index: 3000; font-size: 0.85rem; animation: fadeSlideIn 0.3s ease; box-shadow: var(--shadow-lg); }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: rgba(10,10,10,0.97); flex-direction: column; padding: 90px 28px 30px; gap: 4px; transition: var(--transition-slow); }
-            .nav-links.open { right: 0; }
-            .nav-links a, .nav-links button { display: block; width: 100%; padding: 12px 16px; font-size: 1rem; }
-            .hamburger { display: flex; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2rem; }
-            .section-padding { padding: 50px 0; }
-            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
-            .ba-slider { aspect-ratio: 4/3; }
-        }
-        @media (max-width: 480px) {
-            .container { padding: 0 14px; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn { width: 100%; justify-content: center; }
-            .services-preview-grid { grid-template-columns: 1fr; }
-            .testimonial-grid { grid-template-columns: 1fr; }
-            .floating-whatsapp { width: 48px; height: 48px; font-size: 1.3rem; bottom: 18px; right: 18px; }
-        }
-    </style>
 </head>
 <body>
+    <!-- Skip to content -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- Navigation -->
     <nav id="navbar" aria-label="Main navigation">
         <div class="nav-inner">
             <a href="#" class="nav-logo" onclick="navigateTo('home')" aria-label="OKA'S Home">
                 <div class="logo-icon">O</div> OKA<span>'</span>S
             </a>
             <ul class="nav-links" id="navLinks">
-                <!-- Navigation items are now buttons for better keyboard accessibility -->
                 <li><button onclick="navigateTo('home')" data-nav="home" class="active" aria-current="page">Home</button></li>
                 <li><button onclick="navigateTo('about')" data-nav="about">About</button></li>
                 <li><button onclick="navigateTo('services')" data-nav="services">Services</button></li>
@@ -335,9 +94,9 @@
                 <div class="section-header"><span class="badge">Our Work</span><h2>Before & <span>After</span></h2><div class="underline"></div></div>
                 <div class="ba-slider-wrapper" id="homeBASlider" aria-label="Before and after image comparison">
                     <div class="ba-slider">
-                        <img src="images/After_1.jpg" alt="Before transformation" class="img-before">
-                        <img src="images/After_2.jpg"alt="After transformation" class="img-after" style="clip-path: inset(0 50% 0 0);">
-                        <div class="ba-handle" style="left:50%;" aria-label="Drag to compare before and after"><div class="ba-handle-circle"><i class="fas fa-arrows-left-right"></i></div></div>
+                        <img src="images/before-home.jpg" alt="Before transformation" class="img-before">
+                        <img src="images/after-home.jpg" alt="After transformation" class="img-after" style="clip-path: inset(0 50% 0 0);">
+                        <div class="ba-handle" style="left:50%;" aria-label="Drag to compare"><div class="ba-handle-circle"><i class="fas fa-arrows-left-right"></i></div></div>
                     </div>
                     <div class="ba-labels"><span>BEFORE</span><span>AFTER</span></div>
                 </div>
@@ -358,12 +117,12 @@
         <section class="section" id="section-about" aria-labelledby="about-heading">
             <div class="container section-padding">
                 <div class="section-header"><span class="badge">About Us</span><h2 id="about-heading">The <span>OKA'S</span> Story</h2><div class="underline"></div></div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;" class="about-grid-resp">
-                    <div><img src="images/After_1.jpg" alt="OKA'S team working on a landscaping project" style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);" loading="lazy"></div>
+                <div class="about-grid">
+                    <div><img src="images/background_1.jpg" alt="OKA'S team working on a landscaping project" style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);" loading="lazy"></div>
                     <div>
                         <h3 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:12px;">Crafting Beauty Since 2012</h3>
                         <p style="color:var(--gray-dark);margin-bottom:12px;">OKA’S is a professionally registered company specializing in horticulture, landscaping, floor stamping, and modern 3D floor design. We transform residential, commercial, and outdoor spaces into visually stunning environments with quality and creativity. Our commitment to excellence and customer satisfaction drives every project.</p>
-                        <div style="background:var(--white-off);padding:16px;border-radius:var(--radius-sm);border-left:3px solid var(--gold);margin-bottom:12px;"><strong>CAC Registration:</strong> <span id="display-cac">RC-1234567</span></div>
+                        <div style="background:var(--white-off);padding:16px;border-radius:var(--radius-sm);border-left:3px solid var(--gold);"><strong>CAC Registration:</strong> <span id="display-cac">RC-1234567</span></div>
                     </div>
                 </div>
             </div>
@@ -402,14 +161,12 @@
                     <button data-filter="3d-floor">3D Floor</button>
                 </div>
                 <div class="gallery-grid" id="galleryGrid"></div>
-
-                <!-- Before/After for Project -->
                 <div class="section-header mt-20" style="margin-top:50px;"><h3>Interactive <span>Before & After</span></h3></div>
-                <div class="ba-slider-wrapper" id="projectBASlider" aria-label="Project before and after comparison">
+                <div class="ba-slider-wrapper" id="projectBASlider" aria-label="Project comparison">
                     <div class="ba-slider">
-                        <img src="images/background_1.jpg" alt="Before project" class="img-before">
-                        <img src="images/background_3.jpg" alt="After project" class="img-after" style="clip-path: inset(0 50% 0 0);">
-                        <div class="ba-handle" style="left:50%;" aria-label="Drag to compare"><div class="ba-handle-circle"><i class="fas fa-arrows-left-right"></i></div></div>
+                        <img src="images/before-project.jpg" alt="Before project" class="img-before">
+                        <img src="images/after-project.jpg" alt="After project" class="img-after" style="clip-path: inset(0 50% 0 0);">
+                        <div class="ba-handle" style="left:50%;" aria-label="Drag"><div class="ba-handle-circle"><i class="fas fa-arrows-left-right"></i></div></div>
                     </div>
                     <div class="ba-labels"><span>BEFORE</span><span>AFTER</span></div>
                 </div>
@@ -444,7 +201,6 @@
                     <div class="contact-form-wrapper">
                         <h3>Request a Free Quote</h3>
                         <form id="contactForm" action="https://formspree.io/f/your-real-form-id" method="POST" onsubmit="return handleContactSubmit(event)">
-                            <!-- Honeypot for spam -->
                             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                             <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" name="name" required></div>
                             <div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone" required></div>
@@ -452,7 +208,7 @@
                             <div class="form-group"><label for="service">Service</label><select id="service" name="service"><option>Select</option><option>Horticulture</option><option>Landscaping</option><option>Floor Stamping</option><option>3D Floor Design</option></select></div>
                             <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="4"></textarea></div>
                             <button type="submit" id="contactSubmitBtn" class="btn btn-primary" style="width:100%;">
-                                <span id="submitBtnText">Send Inquiry's <i class="fas fa-paper-plane"></i></span>
+                                <span id="submitBtnText">Send Inquiry <i class="fas fa-paper-plane"></i></span>
                                 <span id="submitBtnLoader" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
                             </button>
                         </form>
@@ -490,9 +246,10 @@
         </div>
     </footer>
 
+    <!-- Floating WhatsApp -->
     <a href="https://wa.me/2349051530632" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
-    <!-- Admin Login -->
+    <!-- Admin Login Overlay -->
     <div class="admin-login-overlay" id="adminLoginOverlay">
         <div class="admin-login-box">
             <h3>🔐 Admin Login</h3>
@@ -550,8 +307,6 @@
       "address": { "@type": "PostalAddress", "streetAddress": "123 Main Street", "addressLocality": "Osogbo", "addressCountry": "NG" },
       "telephone": "+2349051530632",
       "email": "info@okas.com.ng",
-      "priceRange": "$$",
-      "openingHours": "Mo-Fr 08:00-18:00",
       "url": "https://www.okas.com.ng"
     }
     </script>
@@ -559,413 +314,15 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question", "name": "How long does a typical landscaping project take?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Most residential landscaping projects take 2-4 weeks, depending on scope and weather." }
-      },{
-        "@type": "Question", "name": "What areas do you serve?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We operate across 5 states in Nigeria including Lagos, Ogun, Oyo, Abuja, and Rivers State." }
-      },{
-        "@type": "Question", "name": "How durable are 3D epoxy floors?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Our 3D epoxy floors last 15-20 years with proper maintenance." }
-      }]
+      "mainEntity": [
+        { "@type": "Question", "name": "How long does a typical landscaping project take?", "acceptedAnswer": { "@type": "Answer", "text": "Most residential landscaping projects take 2-4 weeks, depending on scope and weather." } },
+        { "@type": "Question", "name": "What areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We operate across 5 states in Nigeria including Lagos, Ogun, Oyo, Abuja, and Rivers State." } },
+        { "@type": "Question", "name": "How durable are 3D epoxy floors?", "acceptedAnswer": { "@type": "Answer", "text": "Our 3D epoxy floors last 15-20 years with proper maintenance." } }
+      ]
     }
     </script>
 
-    <!-- ==================== JAVASCRIPT ==================== -->
-    <script>
-        (function() {
-            // ---------- STATE ----------
-            const DEFAULT_PASSWORD = 'admin123';
-            let isAdminLoggedIn = false;
-            let currentSection = 'home';
-
-            const defaultCompanyInfo = {
-                cac: 'RC-1234567',
-                phone: '+234 905 153 0632',
-                email: 'info@okas.com.ng',
-                address: '123 Main Street, Osogbo',
-            };
-
-            // All images now point to local files
-            const defaultProjects = [
-                { id: 1, title: 'Luxury Garden Oasis', category: 'horticulture', location: 'Ikoyi, Lagos', image: 'images/project-garden.jpg', desc: 'Complete garden redesign with water feature.' },
-                { id: 2, title: 'Modern Driveway Stamping', category: 'floor-stamping', location: 'Lekki, Lagos', image: 'images/project-driveway.jpg', desc: 'Decorative concrete stamping 200m².' },
-                { id: 3, title: '3D Ocean Floor', category: '3d-floor', location: 'Abuja', image: 'images/project-3d-floor.jpg', desc: 'Stunning 3D epoxy floor.' },
-                { id: 4, title: 'Corporate Landscaping', category: 'landscaping', location: 'Victoria Island', image: 'images/project-landscape.jpg', desc: 'Full campus landscaping.' },
-            ];
-
-            const defaultTestimonials = [
-                { id: 1, name: 'Chioma E.', role: 'Homeowner, Lagos', stars: 5, quote: 'OKA\'S transformed our backyard into a paradise!', avatar: 'images/avatar-chioma.jpg' },
-                { id: 2, name: 'Mr. Adebayo', role: 'Business Owner, Abuja', stars: 5, quote: 'The 3D floor wows every visitor.', avatar: 'images/avatar-adebayo.jpg' },
-                { id: 3, name: 'Sarah O.', role: 'Designer', stars: 4, quote: 'Top-tier floor stamping.', avatar: 'images/avatar-sarah.jpg' },
-            ];
-
-            function getStoredData(key, fallback) {
-                try { return JSON.parse(localStorage.getItem('okas_' + key)) || fallback; } catch(e) { return fallback; }
-            }
-            function setStoredData(key, data) { try { localStorage.setItem('okas_' + key, JSON.stringify(data)); } catch(e) {} }
-
-            let companyInfo = getStoredData('companyInfo', defaultCompanyInfo);
-            let projects = getStoredData('projects', defaultProjects);
-            let testimonials = getStoredData('testimonials', defaultTestimonials);
-
-            function saveAllData() {
-                setStoredData('companyInfo', companyInfo);
-                setStoredData('projects', projects);
-                setStoredData('testimonials', testimonials);
-            }
-
-            // ---------- NAVIGATION (updated to handle buttons) ----------
-            function navigateTo(sectionName) {
-                currentSection = sectionName;
-                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-                const target = document.getElementById('section-' + sectionName);
-                if (target) target.classList.add('active');
-
-                // Update active nav link (works for both <a> and <button>)
-                document.querySelectorAll('.nav-links [data-nav]').forEach(el => {
-                    el.classList.remove('active');
-                    el.removeAttribute('aria-current');
-                });
-                const activeNav = document.querySelector(`.nav-links [data-nav="${sectionName}"]`);
-                if (activeNav) {
-                    activeNav.classList.add('active');
-                    activeNav.setAttribute('aria-current', 'page');
-                }
-
-                // Close mobile menu
-                const navLinks = document.getElementById('navLinks');
-                const hamburger = document.getElementById('hamburger');
-                navLinks.classList.remove('open');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-
-                if (isAdminLoggedIn && sectionName !== 'admin') {
-                    document.getElementById('adminPanel').classList.remove('show');
-                }
-
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                if (sectionName === 'projects') renderGallery();
-                if (sectionName === 'testimonials') renderTestimonials();
-                if (sectionName === 'about') updateCompanyDisplays();
-            }
-            window.navigateTo = navigateTo;
-
-            // Mobile menu toggle
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-            hamburger.addEventListener('click', () => {
-                const isOpen = navLinks.classList.toggle('open');
-                hamburger.classList.toggle('active');
-                hamburger.setAttribute('aria-expanded', isOpen);
-            });
-            document.addEventListener('click', (e) => {
-                if (!navLinks.contains(e.target) && !hamburger.contains(e.target) && navLinks.classList.contains('open')) {
-                    navLinks.classList.remove('open');
-                    hamburger.classList.remove('active');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Navbar scroll effect
-            window.addEventListener('scroll', () => {
-                document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-            });
-
-            // Hero slideshow
-            let slideIndex = 0;
-            const slides = document.querySelectorAll('#hero .hero-slide');
-            setInterval(() => {
-                slides[slideIndex].classList.remove('active');
-                slideIndex = (slideIndex + 1) % slides.length;
-                slides[slideIndex].classList.add('active');
-            }, 4500);
-
-            // Before/After sliders (works for both existing ones)
-            function initBASlider(wrapperId) {
-                const wrapper = document.getElementById(wrapperId);
-                if (!wrapper) return;
-                const slider = wrapper.querySelector('.ba-slider');
-                const afterImg = slider.querySelector('.img-after');
-                const handle = slider.querySelector('.ba-handle');
-                let dragging = false;
-
-                function update(x) {
-                    const rect = slider.getBoundingClientRect();
-                    let pct = ((x - rect.left) / rect.width) * 100;
-                    pct = Math.max(0, Math.min(100, pct));
-                    afterImg.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-                    handle.style.left = pct + '%';
-                }
-                function start(e) { dragging = true; e.preventDefault(); }
-                function move(e) { if (dragging) update(e.touches ? e.touches[0].clientX : e.clientX); }
-                function stop() { dragging = false; }
-
-                handle.addEventListener('mousedown', start);
-                slider.addEventListener('mousedown', (e) => { dragging = true; update(e.clientX); });
-                window.addEventListener('mousemove', move);
-                window.addEventListener('mouseup', stop);
-                handle.addEventListener('touchstart', start);
-                slider.addEventListener('touchstart', (e) => { dragging = true; update(e.touches[0].clientX); });
-                window.addEventListener('touchmove', move);
-                window.addEventListener('touchend', stop);
-            }
-            initBASlider('homeBASlider');
-            initBASlider('projectBASlider');
-
-            // FAQ toggle
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.addEventListener('click', () => item.classList.toggle('open'));
-            });
-
-            // Gallery
-            function renderGallery(filter = 'all') {
-                const grid = document.getElementById('galleryGrid');
-                if (!grid) return;
-                const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
-                grid.innerHTML = filtered.map(p => `
-                    <div class="gallery-item">
-                        <img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.src='images/fallback.jpg'">
-                        <div class="gallery-info"><h4>${p.title}</h4><small>${p.location}</small></div>
-                    </div>`).join('');
-            }
-            document.getElementById('galleryFilters').addEventListener('click', e => {
-                if (e.target.tagName === 'BUTTON') {
-                    document.querySelectorAll('#galleryFilters button').forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
-                    renderGallery(e.target.dataset.filter);
-                }
-            });
-
-            // Testimonials
-            function renderTestimonials() {
-                const grid = document.getElementById('testimonialGrid');
-                if (!grid) return;
-                grid.innerHTML = testimonials.map(t => `
-                    <div class="testimonial-card">
-                        <div class="stars">${'★'.repeat(t.stars)}${'☆'.repeat(5-t.stars)}</div>
-                        <p class="quote">"${t.quote}"</p>
-                        <div class="author">
-                            <img src="${t.avatar || 'images/fallback.jpg'}" alt="${t.name}" class="author-avatar" loading="lazy" onerror="this.src='images/fallback.jpg'">
-                            <div><div class="author-name">${t.name}</div><div class="author-role">${t.role}</div></div>
-                        </div>
-                    </div>`).join('');
-            }
-
-            // Company info display
-            function updateCompanyDisplays() {
-                document.getElementById('display-cac').textContent = companyInfo.cac;
-                document.getElementById('display-phone').textContent = companyInfo.phone;
-                document.getElementById('display-email').textContent = companyInfo.email;
-                document.getElementById('display-address').textContent = companyInfo.address;
-                document.getElementById('footer-phone').textContent = companyInfo.phone;
-                document.getElementById('footer-email').textContent = companyInfo.email;
-                document.getElementById('footer-cac').textContent = companyInfo.cac;
-                const waNum = companyInfo.phone.replace(/\D/g, '');
-                document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
-                    a.href = `https://wa.me/${waNum}?text=Hello%20OKA'S!%20I'd%20like%20to%20discuss%20a%20project.`;
-                });
-            }
-
-            // Contact form
-            window.handleContactSubmit = function(e) {
-                e.preventDefault();
-                const btnText = document.getElementById('submitBtnText');
-                const btnLoader = document.getElementById('submitBtnLoader');
-                const form = e.target;
-                if (form.querySelector('[name="_honey"]').value) {
-                    showToast('❌ Spam detected');
-                    return false;
-                }
-                btnText.style.display = 'none';
-                btnLoader.style.display = 'inline-flex';
-                setTimeout(() => {
-                    btnText.style.display = 'inline-flex';
-                    btnLoader.style.display = 'none';
-                    showToast('✅ Thank you! We will contact you within 24 hours.');
-                    form.reset();
-                }, 1500);
-                return false;
-            };
-
-            // Toast notification
-            function showToast(msg) {
-                const c = document.getElementById('toastContainer');
-                const t = document.createElement('div');
-                t.className = 'toast';
-                t.textContent = msg;
-                c.appendChild(t);
-                setTimeout(() => t.remove(), 3000);
-            }
-
-            // ---------- ADMIN ----------
-            window.showAdminLogin = function() {
-                document.getElementById('adminLoginOverlay').classList.add('show');
-                document.getElementById('adminPassword').focus();
-            };
-            window.closeAdminLogin = function() {
-                document.getElementById('adminLoginOverlay').classList.remove('show');
-            };
-
-            window.adminLogin = function() {
-                if (document.getElementById('adminPassword').value === DEFAULT_PASSWORD) {
-                    isAdminLoggedIn = true;
-                    document.getElementById('adminLoginOverlay').classList.remove('show');
-                    document.getElementById('adminPanel').classList.add('show');
-                    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-                    document.getElementById('section-home').classList.add('active');
-                    currentSection = 'home';
-                    populateAdminForms();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    showToast('✅ Welcome Admin!');
-                } else {
-                    showToast('❌ Incorrect password.');
-                }
-            };
-
-            window.logoutAdmin = function() {
-                isAdminLoggedIn = false;
-                document.getElementById('adminPanel').classList.remove('show');
-                navigateTo('home');
-                updateCompanyDisplays();
-                renderGallery();
-                renderTestimonials();
-                showToast('👋 Logged out.');
-            };
-
-            window.closeAdminPanel = function() {
-                document.getElementById('adminPanel').classList.remove('show');
-            };
-
-            function populateAdminForms() {
-                document.getElementById('adminCAC').value = companyInfo.cac;
-                document.getElementById('adminPhone').value = companyInfo.phone;
-                document.getElementById('adminEmail').value = companyInfo.email;
-                document.getElementById('adminAddress').value = companyInfo.address;
-                renderAdminProjects();
-                renderAdminTestimonials();
-            }
-
-            window.saveCompanyInfo = function() {
-                companyInfo.cac = document.getElementById('adminCAC').value || companyInfo.cac;
-                companyInfo.phone = document.getElementById('adminPhone').value || companyInfo.phone;
-                companyInfo.email = document.getElementById('adminEmail').value || companyInfo.email;
-                companyInfo.address = document.getElementById('adminAddress').value || companyInfo.address;
-                saveAllData();
-                updateCompanyDisplays();
-                showToast('✅ Company info updated.');
-            };
-
-            window.addProject = function() {
-                const title = document.getElementById('projTitle').value.trim();
-                const category = document.getElementById('projCategory').value.trim();
-                const location = document.getElementById('projLocation').value.trim();
-                const image = document.getElementById('projImage').value.trim();
-                const desc = document.getElementById('projDesc').value.trim();
-                if (!title || !category || !image) {
-                    showToast('⚠️ Title, category & image required.');
-                    return;
-                }
-                projects.unshift({ id: Date.now(), title, category, location: location || 'Nigeria', image, desc });
-                saveAllData();
-                renderAdminProjects();
-                renderGallery();
-                ['projTitle','projCategory','projLocation','projImage','projDesc'].forEach(id => document.getElementById(id).value = '');
-                showToast('✅ Project added.');
-            };
-
-            window.deleteProject = function(id) {
-                projects = projects.filter(p => p.id !== id);
-                saveAllData();
-                renderAdminProjects();
-                renderGallery();
-                showToast('🗑️ Deleted.');
-            };
-
-            window.editProject = function(id) {
-                const p = projects.find(p => p.id === id);
-                if (!p) return;
-                document.getElementById('projTitle').value = p.title;
-                document.getElementById('projCategory').value = p.category;
-                document.getElementById('projLocation').value = p.location;
-                document.getElementById('projImage').value = p.image;
-                document.getElementById('projDesc').value = p.desc;
-                deleteProject(id);
-                showToast('📝 Edit fields above, then "Add Project" to save.');
-            };
-
-            function renderAdminProjects() {
-                const c = document.getElementById('adminProjectList');
-                if (!c) return;
-                c.innerHTML = projects.map(p => `
-                    <div class="admin-card">
-                        <strong>${p.title}</strong><br><small>${p.category} | ${p.location}</small>
-                        <img src="${p.image}" style="width:100%;height:70px;object-fit:cover;border-radius:4px;margin:4px 0;" onerror="this.style.display='none'">
-                        <button class="edit-btn" onclick="editProject(${p.id})">✏️</button>
-                        <button class="danger" onclick="deleteProject(${p.id})">🗑️</button>
-                    </div>`).join('');
-            }
-
-            window.addTestimonial = function() {
-                const name = document.getElementById('testName').value.trim();
-                const role = document.getElementById('testRole').value.trim();
-                const stars = parseInt(document.getElementById('testStars').value) || 5;
-                const avatar = document.getElementById('testAvatar').value.trim();
-                const quote = document.getElementById('testQuote').value.trim();
-                if (!name || !quote) {
-                    showToast('⚠️ Name & quote required.');
-                    return;
-                }
-                testimonials.unshift({ id: Date.now(), name, role: role || 'Client', stars: Math.min(5, Math.max(1, stars)), quote, avatar });
-                saveAllData();
-                renderAdminTestimonials();
-                renderTestimonials();
-                ['testName','testRole','testStars','testAvatar','testQuote'].forEach(id => document.getElementById(id).value = '');
-                showToast('✅ Testimonial added.');
-            };
-
-            window.deleteTestimonial = function(id) {
-                testimonials = testimonials.filter(t => t.id !== id);
-                saveAllData();
-                renderAdminTestimonials();
-                renderTestimonials();
-                showToast('🗑️ Deleted.');
-            };
-
-            window.editTestimonial = function(id) {
-                const t = testimonials.find(t => t.id === id);
-                if (!t) return;
-                document.getElementById('testName').value = t.name;
-                document.getElementById('testRole').value = t.role;
-                document.getElementById('testStars').value = t.stars;
-                document.getElementById('testAvatar').value = t.avatar;
-                document.getElementById('testQuote').value = t.quote;
-                deleteTestimonial(id);
-                showToast('📝 Edit fields above, then "Add" to save.');
-            };
-
-            function renderAdminTestimonials() {
-                const c = document.getElementById('adminTestimonialList');
-                if (!c) return;
-                c.innerHTML = testimonials.map(t => `
-                    <div class="admin-card">
-                        <strong>${t.name}</strong> ${'★'.repeat(t.stars)}<br><small>${t.role}</small>
-                        <p style="font-style:italic;font-size:0.7rem;">"${t.quote.substring(0,50)}..."</p>
-                        <button class="edit-btn" onclick="editTestimonial(${t.id})">✏️</button>
-                        <button class="danger" onclick="deleteTestimonial(${t.id})">🗑️</button>
-                    </div>`).join('');
-            }
-
-            // Escape closes admin overlay
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAdminLogin(); });
-
-            // Init
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-            updateCompanyDisplays();
-            renderGallery();
-            renderTestimonials();
-        })();
-    </script>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
