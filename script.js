@@ -1,10 +1,10 @@
 (function() {
     // ---------- DATA (static) ----------
     const projects = [
-        { id: 1, title: 'Luxury Garden Oasis', category: 'horticulture', location: 'Ikoyi, Lagos', image: 'images/project-garden.jpg', desc: 'Complete garden redesign with water feature.' },
-        { id: 2, title: 'Modern Driveway Stamping', category: 'floor-stamping', location: 'Lekki, Lagos', image: 'images/project-driveway.jpg', desc: 'Decorative concrete stamping 200m².' },
-        { id: 3, title: '3D Ocean Floor', category: '3d-floor', location: 'Abuja', image: 'images/project-3d-floor.jpg', desc: 'Stunning 3D epoxy floor.' },
-        { id: 4, title: 'Corporate Landscaping', category: 'landscaping', location: 'Victoria Island', image: 'images/project-landscape.jpg', desc: 'Full campus landscaping.' },
+        { id: 1, title: 'Luxury Garden Oasis', category: 'horticulture', location: 'Ikoyi, Lagos', image: 'images/project_1.jpg', desc: 'Complete garden redesign with water feature.' },
+        { id: 2, title: 'Modern Driveway Stamping', category: 'floor-stamping', location: 'Lekki, Lagos', image: 'images/project_2.jpg', desc: 'Decorative concrete stamping 200m².' },
+        { id: 3, title: '3D Ocean Floor', category: '3d-floor', location: 'Abuja', image: 'images/project_3.jpg', desc: 'Stunning 3D epoxy floor.' },
+        { id: 4, title: 'Corporate Landscaping', category: 'landscaping', location: 'Victoria Island', image: 'images/project_4.jpg', desc: 'Full campus landscaping.' },
     ];
 
     const testimonials = [
