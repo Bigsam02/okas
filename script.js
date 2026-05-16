@@ -5,7 +5,10 @@
         { id: 2, title: 'Modern Driveway Stamping', category: 'floor-stamping', location: 'Lekki, Lagos', image: 'images/project-driveway.jpg', desc: 'Decorative concrete stamping 200m².' },
         { id: 3, title: '3D Ocean Floor', category: '3d-floor', location: 'Abuja', image: 'images/project-3d-floor.jpg', desc: 'Stunning 3D epoxy floor.' },
         { id: 4, title: 'Corporate Landscaping', category: 'landscaping', location: 'Victoria Island', image: 'images/project-landscape.jpg', desc: 'Full campus landscaping.' },
+        { id: 5, title: 'Poolside Stamping', category: 'floor-stamping', location: 'Banana Island', image: 'images/project-poolside.jpg', desc: 'Slip-resistant pool deck.' },
+        { id: 6, title: 'Rooftop Garden', category: 'horticulture', location: 'Yaba, Lagos', image: 'images/project-rooftop.jpg', desc: 'Urban rooftop garden transformation.' },
     ];
+
 
     const testimonials = [
         { id: 1, name: 'Chioma E.', role: 'Homeowner, Lagos', stars: 5, quote: 'OKA\'S transformed our backyard into a paradise!', avatar: 'images/avatar-chioma.jpg' },
